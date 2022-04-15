@@ -309,11 +309,11 @@ def setupSQLConn():
 
 def getConn():
     # Local
-    mydb = conn.connect(host='localhost', user='root', passwd='MySql@123')
+    # mydb = conn.connect(host='localhost', user='root', passwd='MySql@123')
 
     # AWS
-    # mydb = conn.connect(host='ineurondatabase.caxhx34dldru.us-east-1.rds.amazonaws.com', user='admin',
-    #                    passwd='mysql1234')
+    mydb = conn.connect(host='ineurondatabase.caxhx34dldru.us-east-1.rds.amazonaws.com', user='admin',
+                        passwd='mysql1234')
 
     return mydb
 
