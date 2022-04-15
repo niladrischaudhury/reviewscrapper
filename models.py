@@ -1,3 +1,7 @@
+import logging
+
+logging.basicConfig(filename='appLog.log', level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
+
 # Faculty class
 class Faculty:
     def __init__(self, name, profile):
@@ -5,8 +9,8 @@ class Faculty:
         self.profile = profile
 
     def printFaculty(self):
-        print('Faculty Name:', self.name)
-        print('Faculty Profile:', self.profile)
+        logging.info('Faculty Name:', self.name)
+        logging.info('Faculty Profile:', self.profile)
 
 
 # Curriculum class
@@ -16,8 +20,8 @@ class Curriculum:
         self.curriculumListDetails = curriculumListDetails
 
     def printCurriculum(self):
-        print('Curriculum Name:', self.name)
-        print('Curriculum Details:', self.curriculumListDetails)
+        logging.info('Curriculum Name:', self.name)
+        logging.info('Curriculum Details:', self.curriculumListDetails)
 
 
 # Course Class
@@ -63,18 +67,18 @@ class Course:
         return faculties
 
     def printCourse(self):
-        print('Course name:', self.courseName)
-        print('Course desc:', self.courseDesc)
-        print('Course URL:', self.courseURL)
-        print('Course learnings:', self.courseLearnings)
-        print('Course requirements:', self.courseRequirements)
-        print('Course features:', self.courseFeatures)
-        print('Course curriculums:')
+        logging.info('Course name:', self.courseName)
+        logging.info('Course desc:', self.courseDesc)
+        logging.info('Course URL:', self.courseURL)
+        logging.info('Course learnings:', self.courseLearnings)
+        logging.info('Course requirements:', self.courseRequirements)
+        logging.info('Course features:', self.courseFeatures)
+        logging.info('Course curriculums:')
         if isinstance(self.courseCurriculums, list):
             for i in self.courseCurriculums:
                 if isinstance(i, Curriculum):
                     i.printCurriculum()
-        print('Course faculties:')
+        logging.info('Course faculties:')
         if isinstance(self.courseFaculties, list):
             for i in self.courseFaculties:
                 if isinstance(i, Faculty):
@@ -92,8 +96,8 @@ class SubTopic:
         self.subTopicCourses.append(course)
 
     def printSubTopic(self):
-        print("SubTopic Name:", self.subTopicName)
-        print("SubTopic URL:", self.subTopicURL)
+        logging.info("SubTopic Name:", self.subTopicName)
+        logging.info("SubTopic URL:", self.subTopicURL)
         if isinstance(self.subTopicCourses, list):
             for i in self.subTopicCourses:
                 if isinstance(i, Course):
@@ -113,7 +117,7 @@ class MainCourse:
         return self.subTopics
 
     def printMainCourse(self):
-        print("CourseName:", self.courseName)
+        logging.info("CourseName:", self.courseName)
         if isinstance(self.subTopics, list):
             for i in self.subTopics:
                 if isinstance(i, SubTopic):
